@@ -1,0 +1,39 @@
+import java.util.*;
+public class utopiantree {
+		
+	public static void main(String[] args) {
+		Scanner s= new Scanner(System.in);
+		//System.out.println("Enter growth cycle");
+		int number=s.nextInt();
+		int a[]=new int[number];
+		//System.out.println("values");
+		for(int i=0;i<number;i++) {
+			a[i]=s.nextInt();
+		}
+		//sort
+		Arrays.parallelSort(a);
+		//sorted array 'a[]' last element value
+		int max=a[number-1];
+		//System.out.println(max);
+		//new array of size last element value of array 'a[]'
+		int b[]=new int[max+1];
+		//finding utopian tree values
+		b[0]=1;
+		b[1]=2;
+		b[2]=3;
+		for(int i=3;i<=max;i++) {
+			if(i%2==0)
+			{
+				b[i]=b[i-1]+1;
+			}
+			
+			if(i%2!=0) {
+				b[i]=b[i-1]*2;
+			}
+		}
+		for(int i=0;i<number;i++) {
+			System.out.println(b[a[i]]);
+		}
+	}
+
+}
